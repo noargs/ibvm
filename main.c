@@ -5,7 +5,7 @@
 
 // make -k to run the file
 
-#define IBVM_STACK_CAPACITY 1
+#define IBVM_STACK_CAPACITY 1028
 
 typedef enum {
     TRAP_OK = 0,
@@ -43,6 +43,17 @@ typedef enum {
     INST_MULT,
     INST_DIV,
 } Inst_Type;
+
+const char* inst_type_as_cstr(Inst_Type type) {
+    switch (type){
+    case INST_PUSH: return "INST_PUSH";
+    case INST_PLUS: return "INST_PLUS";
+    case INST_MINUS: return "INST_MINUS";
+    case INST_MULT: return "INST_MULT";
+    case INST_DIV: return "INST_DIV";    
+    default: assert(0 && "inst_type_as_cstr: unreachable");
+    }
+}
 
 typedef struct {
     Inst_Type type;
