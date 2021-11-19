@@ -3,3 +3,6 @@ LIBS=
 
 ibvm: main.c
 	$(CC) $(CFLAGS) -o ibvm main.c $(LIBS)
+
+run:
+	./ibvm	
